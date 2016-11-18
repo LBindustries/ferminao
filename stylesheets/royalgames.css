@@ -87,7 +87,7 @@ a
 
 .voto
 {
-    background-color: #fff2cc;
+    background-color: white;
     padding: 15px;
     border-radius: 5px;
 	margin: 5px;
@@ -223,7 +223,7 @@ a
 .news
 {
 	margin-bottom: 10px;
-	color: black;
+	color: #001fe2;
 }
 
 .newssi
