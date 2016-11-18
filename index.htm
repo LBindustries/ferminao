@@ -1,0 +1,155 @@
+﻿<html>
+	<head>
+		<title>ITIS Fermi - Nao Challenge</title>
+		<link href="favicon.ico" rel="shortcut icon"></link>
+		<script src="javascripts/jquery-1.js"></script>
+		<script src="javascripts/jquery-migrate-1.js"></script>
+		<link rel="stylesheet" href="stylesheets/bootstrap.css"></link>
+		<link rel="stylesheet" href="stylesheets/bootstrap-theme.css"></link>
+		<script src="javascripts/bootstrap.min.js"></script>
+		<link href="http://fonts.googleapis.com/css?family=Ubuntu:400,700,400italic" rel="stylesheet" type="text/css"></link>
+		<link href="stylesheets/royalgames.css" rel="stylesheet"></link>
+		<script src="javascripts/angular.min.js"></script>
+			<script src="javascripts/app.js"></script>
+			<script src="javascripts/controllers/MembriController.js"></script>
+			<script src="javascripts/controllers/GamesController.js"></script>
+			<script src="javascripts/controllers/FondiController.js"></script>
+			<script src="javascripts/controllers/NewsController.js"></script>
+		<script src="javascripts/hide.js"></script>
+		<script src="vote.js"></script>
+	</head>
+	<body ng-app="royal">
+		<nav class="navbar navbar-royalgames">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#coso">
+						<span>Menù</span>
+					</button>
+				  <a class="navbar-brand" href=# onclick="show(&quot;#main&quot;)">Nao Challenge</a>
+				</div>
+				<div class="collapse navbar-collapse" id="coso">
+					<ul class="nav navbar-nav">
+						<li><a href=# onclick="show(&quot;#chisiamo&quot;)">Video</a></li>
+						<li><a href=# onclick="show(&quot;#membri&quot;)">Membri</a></li>
+						<li><a href="https://www.facebook.com/NaoFermi/?fref=ts">Facebook</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<div class="jumbotron jumbotron-royalgames">
+			<div class="container">
+				<h1 class="text-center">
+					ITIS E.Fermi Nao Challenge
+				</h1>
+			</div>
+		</div>
+		<div class="container">
+			<div id="main" class="gruppo" ng-controller="NewsController">
+				<p>
+					Salve, benvenuto nel sito dedicato alla squadra per la NAO challenge dell' ITIS Enrico Fermi! 
+				<p>
+				<div class="row">
+					<div class="col-md-6">
+						<h3>
+							Notizie
+						</h3>
+						<div>
+							<div ng-repeat="news in list" class="voto">
+									<div class="row news">
+										<div class="col-xs-1 time text-right">
+											{{news.time | date}}
+										</div>
+										<div class="col-xs-11" ng-if="news.text" style="color= black">
+											{{news.text}}
+										</div>
+										<div class="col-xs-7" ng-if="news.voto">
+											<b>Votazione terminata:</b> {{news.voto}}
+										</div>
+										<div class="col-xs-2 newssi" ng-if="news.voto">
+											<span class="glyphicon glyphicon-ok"></span>&nbsp;{{news.si}}
+										</div>
+											<div class="col-xs-2 newsno" ng-if="news.voto">
+											<span class="glyphicon glyphicon-remove"></span>&nbsp;{{news.no}}
+											
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<h3>
+							Eventi
+						</h3>
+						<div>
+							<a ng-repeat="event in events" href="{{event.link}}">
+								<div class="voto">
+									<div class="row news">
+										<div class="col-xs-1 time text-right">
+											{{event.time | date}}
+										</div>
+										<div class="col-xs-11" ng-if="event.text">
+											{{event.text}}
+										</div>
+									</div>
+								</div>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="chisiamo" class="gruppo">
+				<h2>
+					Sezione Multimediale
+				</h2>
+				<p>
+				In questa sezione puoi trovare i video che documentano le nostre difficoltà e mostrano come evolvono e crescono le idee nel gruppo 
+				</p>
+				<h3>
+					Vuoi ricevere le notifiche dei nostri video?
+				</h3>
+				<p>
+					<a href="https://www.youtube.com/channel/UCMsB5zm1BubWirq2N3tOWrQ" style="color: white"> Iscriviti al canale! </a>
+				</p>
+				<div class="row">
+					<div class="col-xs-6">
+						<h4>
+							L'ultimo video
+						</h4>
+						<p>
+							Sezione in costruzione
+						</p>
+					</div>
+						<h4>
+							Playlist
+						</h4>
+						<p>
+								Sezione in costruzione
+						</p>
+					</div>
+				</div>
+			</div>
+			<div id="membri" class="gruppo" ng-controller="MembriController">
+				<h2>
+					Membri
+				</h2>
+				<div class="row row-membri" ng-repeat="array in membri">
+					<div class="col-md-4" ng-repeat="membro in array track by $index">
+						<img class="profile" ng-src="https://dl.dropboxusercontent.com/u/23313381/logo/Personali/{{ membro.icon }}.png"></img>
+						<h3>
+							{{ membro.name }}
+						</h3>
+						<p>
+							{{ membro.desc }}
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script>
+		//Inizializza i tooltip.
+		$(function () {
+			$('.wt').tooltip()
+		});
+	</script>
+</html>
