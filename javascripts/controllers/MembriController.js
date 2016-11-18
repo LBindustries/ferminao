@@ -47,12 +47,12 @@
 			icon: "",
 		},
 		{
-			name: "Marassi Lorena",
+			name: "Professoressa Marassi Lorena",
 			desc: "Descrizione Qui",
 			icon: "",
 		},
 		{
-			name: "Manzini Emanuela",
+			name: "Professoressa Manzini Emanuela",
 			desc: "Descrizione Qui",
 			icon: "",
 		},
